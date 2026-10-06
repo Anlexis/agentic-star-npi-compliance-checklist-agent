@@ -1,0 +1,16 @@
+# Runtime parameters — loaded by AgentRegistry, passed as Graph(config=...).
+# Separate from config/agent.yaml (the static manifest).
+
+# Backbone retry budget, consumed by the framework's routing.
+max_retry: 3
+
+# Wall-clock budget for one compliance scan, in seconds. The scan fails closed
+# when it is exceeded: a partially evaluated bill of materials must never be
+# reported as a clean pass.
+timeout_s: 30
+
+compliance:
+  # Upper bound on accepted bill-of-materials entries per request.
+  max_bom_entries: 200
+  # Market scope applied when the caller does not select one.
+  default_target_market: "jp_eu"
